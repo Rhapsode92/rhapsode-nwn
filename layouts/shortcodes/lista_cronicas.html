@@ -1,0 +1,44 @@
+<style>
+    /* Fondo negro de seguridad SIN !important para permitir el degradado posterior */
+    html {
+        background-color: #050505;
+    }
+    /* El body empieza invisible para ocultar el flash blanco */
+    body {
+        visibility: hidden;
+        opacity: 0;
+    }
+</style>
+
+<script>
+    window.addEventListener('load', function() {
+        // Ejecutamos cuando TODO (incluyendo el CSS del degradado) esté cargado
+        document.body.style.visibility = "visible";
+        document.body.style.opacity = "1";
+    });
+</script>
+<h1 class="nwn-section-title">Crónicas del Forjador</h1>
+
+<div class="nwn-archive-stack">
+    {{ $posts := where .Site.RegularPages "Section" "blog" }}
+    {{ if eq (len $posts) 0 }}{{ $posts = .Site.RegularPages }}{{ end }}
+
+    {{ range $index, $element := $posts }}
+    <article class="nwn-book-card" style="--card-index: {{ $index }};">
+        {{ if .Params.image }}
+            <div class="nwn-card-image" style="background-image: url('{{ .Params.image | absURL }}');"></div>
+        {{ else }}
+            <div class="nwn-card-image default-bg"></div>
+        {{ end }}
+        
+        <div class="nwn-book-body">
+            <span class="nwn-book-date">{{ .Date.Format "02 Jan, 2006" }}</span>
+            <h2 class="nwn-book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <div class="nwn-summary-container">
+              <p class="nwn-book-summary">{{ .Summary | truncate 150 }}</p>
+            </div>
+            <a href="{{ .Permalink }}" class="nwn-book-link">Abrir Crónica →</a>
+        </div>
+    </article>
+    {{ end }}
+</div>

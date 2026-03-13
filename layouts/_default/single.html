@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article class="nwn-post-container">
+    {{ if .Params.image }}
+    <div class="nwn-post-header-image" style="background-image: url('{{ .Params.image | absURL }}');">
+        <div class="nwn-post-overlay">
+            <h1 class="nwn-post-title">{{ .Title }}</h1>
+        </div>
+    </div>
+    {{ end }}
+
+    <div class="nwn-post-meta">
+        <span class="meta-item"><i class="fas fa-feather-alt"></i> Escrito por: <strong>{{ .Params.author | default "Rhapsode" }}</strong></span>
+        <span class="meta-sep">|</span>
+        <span class="meta-item"><i class="fas fa-calendar-alt"></i> {{ .Date.Format "02 de Enero, 2006" }}</span>
+    </div>
+
+    <div class="nwn-post-content post-content">
+        {{ .Content }}
+    </div>
+
+    <div class="nwn-post-footer">
+        <a href="/blog/" class="nwn-back-button">← Volver a las Crónicas</a>
+    </div>
+</article>
+{{ end }}

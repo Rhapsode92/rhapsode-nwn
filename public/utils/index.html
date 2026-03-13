@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Cámara de Utilidades - Rhapsode NWN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="//localhost:1313/favicon.png">
+  <link rel="canonical" href="//localhost:1313/utils/" />
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/assets/css/extended.css">
+
+  
+    
+    <meta name="keywords" content="Nathan Buache, Test Manager, QA, Quality Assurance, Lausanne, Switzerland, Web Testing, Software Testing, QoQa"/>
+    <meta property="og:title" content="Cámara de Utilidades - Rhapsode NWN"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="//localhost:1313/utils/"/>
+    <meta property="og:site_name" content="Rhapsode NWN"/>
+    
+    <meta property="og:description" content="Test Manager based in Lausanne, Switzerland. QA specialist sharing insights on testing, technology, and quality assurance."/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Cámara de Utilidades"/>
+    
+    
+    
+  
+
+  
+
+  
+  
+  
+</head>
+
+
+
+
+<body class='page '>
+  <div id="menu-main-mobile" class="menu-main-mobile">
+    <ul class="menu">
+        
+        
+            
+                <li class="menu-item-inicio">
+                    <a href="//localhost:1313/">Inicio</a>
+                </li>
+            
+        
+            
+                <li class="menu-item-blog">
+                    <a href="//localhost:1313/cronicas/">Blog</a>
+                </li>
+            
+        
+            
+                <li class="menu-item-utilidades">
+                    <a href="//localhost:1313/utils/">Utilidades</a>
+                </li>
+            
+        
+    </ul>
+</div>
+  <div id="wrapper" class="wrapper">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="//localhost:1313/css/custom.css?v=1773431401">
+
+<header class="site-header">
+  <div class="nav-container">
+    <div class="logo-block">
+      <a href="/">
+        <img src="/images/logo2.webp" alt="Logo" class="site-logo">
+      </a>
+    </div>
+    
+    <nav class="menu-main">
+      <ul>
+    
+    <li>
+        <a href="/">
+            <i class="fas fa-dice-d20"></i> Inicio
+        </a>
+    </li>
+    
+    <li>
+        <a href="/cronicas/">
+            <i class="fas fa-scroll"></i> Blog
+        </a>
+    </li>
+    
+    <li>
+        <a href="/utils/">
+            <i class="fas fa-tools"></i> Utilidades
+        </a>
+    </li>
+    
+</ul>
+    </nav>
+  </div>
+</header>
+    
+<article class="nwn-post-container">
+    
+
+    <div class="nwn-post-meta">
+        <span class="meta-item"><i class="fas fa-feather-alt"></i> Escrito por: <strong>Rhapsode</strong></span>
+        <span class="meta-sep">|</span>
+        <span class="meta-item"><i class="fas fa-calendar-alt"></i> 01 de Enero, 0001</span>
+    </div>
+
+    <div class="nwn-post-content post-content">
+        <style>
+    /* Fondo negro de seguridad SIN !important para permitir el degradado posterior */
+    html {
+        background-color: #050505;
+    }
+    /* El body empieza invisible para ocultar el flash blanco */
+    body {
+        visibility: hidden;
+        opacity: 0;
+    }
+</style>
+
+<script>
+    window.addEventListener('load', function() {
+        // Ejecutamos cuando TODO (incluyendo el CSS del degradado) esté cargado
+        document.body.style.visibility = "visible";
+        document.body.style.opacity = "1";
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+<div class="utilidades-wrapper">
+    <div class="nwn-card">
+        <h2 class="nwn-font gold-text" style="margin-top:0;">
+            <i class="fas fa-magic"></i> Portrait Studio
+        </h2>
+        <p>
+            Forja las cinco imágenes (.tga) necesarias para que tu héroe tenga un portrait allá donde vaya. Recomendado usar imágenes verticales.
+        </p>
+
+        <div id="drop-zone" class="drop-zone">
+            <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: #c5a059; margin-bottom: 10px;"></i>
+            <p class="nwn-font">Arrastra el lienzo o haz clic para buscar</p>
+            <input type="file" id="file-input" hidden accept="image/*">
+        </div>
+
+        <div id="preview-container" class="hidden" style="text-align:center;">
+            <div class="portrait-frame">
+                <img id="preview-img" src="" alt="Vista previa">
+            </div>
+            <div>
+                <button id="remove-btn" class="gold-button-action" style="width: auto;">Descartar</button>
+            </div>
+        </div>
+
+        <button id="generate-btn" class="gold-button-action" style="width: 100%;">
+            <i class="fas fa-cog" id="cog-icon"></i> <span id="btn-text">Forjar Pack de Retratos</span>
+        </button>
+    </div>
+
+    <div class="nwn-card">
+        <h2 class="nwn-font gold-text" style="margin-top:0;">
+            <i class="fas fa-scroll"></i> Generador de Nombres
+        </h2>
+        <div class="nwn-input-group" style="display: flex; gap: 15px; margin: 25px 0;">
+            <select id="race-select" class="nwn-select-dark">
+                <option value="human">Humano</option>
+                <option value="elf">Elfo</option>
+                <option value="dwarf">Enano</option>
+                <option value="semiorc">Semiorco</option>
+                <option value="semielf">Semielfo</option>
+                <option value="aasimar">Aasimar</option>
+                <option value="tiefling">Tiefling</option>
+                <option value="dragonborn">Dracónido</option>
+            </select>
+            <button id="name-btn" class="gold-button-action" style="width: auto;">Inspirar</button>
+        </div>
+        <div id="name-result" class="name-display-box nwn-font">---</div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+    const CONFIG = [
+        { suffix: "_h.tga", cw: 256, ch: 512, uw: 256, uh: 400 },
+        { suffix: "_l.tga", cw: 128, ch: 256, uw: 128, uh: 200 },
+        { suffix: "_m.tga", cw: 64,  ch: 128, uw: 64,  uh: 100 },
+        { suffix: "_s.tga", cw: 32,  ch: 64,  uw: 32,  uh: 50  },
+        { suffix: "_t.tga", cw: 16,  ch: 32,  uw: 16,  uh: 25  }
+    ];
+
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const previewContainer = document.getElementById('preview-container');
+    const generateBtn = document.getElementById('generate-btn');
+    const previewImg = document.getElementById('preview-img');
+    const removeBtn = document.getElementById('remove-btn');
+    const btnText = document.getElementById('btn-text');
+
+    let masterImage = null;
+    let currentFileName = "portrait";
+
+    dropZone.onclick = () => fileInput.click();
+    fileInput.onchange = (e) => handleFile(e.target.files[0]);
+
+    function handleFile(file) {
+        if (!file || !file.type.startsWith('image/')) return;
+        currentFileName = file.name;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            masterImage = new Image();
+            masterImage.onload = () => {
+                previewImg.src = e.target.result;
+                previewContainer.classList.remove('hidden');
+                dropZone.classList.add('hidden');
+                generateBtn.disabled = false;
+            };
+            masterImage.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Lógica de descarte corregida
+    removeBtn.onclick = (e) => {
+        e.preventDefault();
+        masterImage = null;
+        previewImg.src = '';
+        previewContainer.classList.add('hidden');
+        dropZone.classList.remove('hidden');
+        generateBtn.disabled = true;
+        fileInput.value = '';
+    };
+
+    generateBtn.onclick = async () => {
+        if (!masterImage) return;
+        btnText.textContent = "GENERANDO...";
+        const zip = new JSZip();
+        const rawName = currentFileName.replace(/\.[^/.]+$/, "").substring(0, 12).toLowerCase();
+        for (const cfg of CONFIG) {
+            const blob = await createTGA(masterImage, cfg);
+            zip.file(`${rawName}${cfg.suffix}`, blob);
+        }
+        const content = await zip.generateAsync({ type: "blob" });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(content);
+        link.download = `${rawName}_portraits.zip`;
+        link.click();
+        btnText.textContent = "Forjar Pack de Retratos";
+    };
+
+    function createTGA(img, cfg) {
+        return new Promise((resolve) => {
+            const canvas = document.createElement('canvas');
+            canvas.width = cfg.cw; canvas.height = cfg.ch;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, cfg.cw, cfg.ch);
+            const iRatio = img.width / img.height;
+            const tRatio = cfg.uw / cfg.uh;
+            let dw, dh, dx, dy;
+            if (iRatio > tRatio) {
+                dh = cfg.uh; dw = cfg.uh * iRatio;
+                dx = -(dw - cfg.uw) / 2; dy = 0;
+            } else {
+                dw = cfg.uw; dh = cfg.uw / iRatio;
+                dx = 0; dy = -(dh - cfg.uh) / 2;
+            }
+            ctx.save(); ctx.beginPath(); ctx.rect(0, 0, cfg.uw, cfg.uh); ctx.clip();
+            ctx.drawImage(img, dx, dy, dw, dh); ctx.restore();
+            const imgData = ctx.getImageData(0, 0, cfg.cw, cfg.ch).data;
+            const header = new Uint8Array(18);
+            header[2] = 2; header[12] = cfg.cw & 0xFF; header[13] = (cfg.cw >> 8) & 0xFF;
+            header[14] = cfg.ch & 0xFF; header[15] = (cfg.ch >> 8) & 0xFF;
+            header[16] = 32; header[17] = 0x08;
+            const pixels = new Uint8Array(cfg.cw * cfg.ch * 4);
+            let p = 0;
+            for (let y = cfg.ch - 1; y >= 0; y--) {
+                for (let x = 0; x < cfg.cw; x++) {
+                    const i = (y * cfg.cw + x) * 4;
+                    pixels[p++] = imgData[i + 2]; pixels[p++] = imgData[i + 1];
+                    pixels[p++] = imgData[i]; pixels[p++] = imgData[i + 3];
+                }
+            }
+            resolve(new Blob([header, pixels], { type: 'application/octet-stream' }));
+        });
+    }
+
+    const nameData = {
+        human: { pre: ["Al", "Be", "Ced", "Dov", "Ed", "Fa", "Geth", "Hald"], post: ["oric", "ard", "win", "an", "as", "on", "ar"] },
+        elf: { pre: ["Ae", "Cael", "Faer", "Iari", "Lava", "Syl", "Thaer"], post: ["is", "eth", "ia", "en", "al", "on", "iel"] },
+        dwarf: { pre: ["Balg", "Dorn", "Gor", "Hrolf", "Krag", "Thror"], post: ["li", "in", "im", "or", "un", "dur", "on"] },
+        semiorc: { pre: ["Grak", "Mug", "Thokk", "Ugar", "Zarg", "Holg"], post: ["ush", "ar", "og", "ur", "en", "ak"] },
+        semielf: { pre: ["El", "Tan", "Ril", "Lia", "Hal", "Quar"], post: ["dar", "ion", "is", "ath", "yn", "el"] },
+        aasimar: { pre: ["Auri", "Val", "Mica", "Gabr", "Sera"], post: ["el", "ius", "on", "as", "iel"] },
+        tiefling: { pre: ["Mal", "Kari", "Zar", "Xan", "Mor", "Ake"], post: ["kos", "dos", "rias", "mon", "ius"] },
+        dragonborn: { pre: ["Bal", "Dona", "Griv", "Kriv", "Mehen", "Rhogar"], post: ["ar", "ash", "inn", "osh", "ius"] }
+    };
+
+    document.getElementById('name-btn').addEventListener('click', function() {
+        const race = document.getElementById('race-select').value;
+        const data = nameData[race];
+        const name = data.pre[Math.floor(Math.random() * data.pre.length)] + 
+                     data.post[Math.floor(Math.random() * data.post.length)];
+        const result = document.getElementById('name-result');
+        result.textContent = name;
+    });
+
+    document.getElementById('name-result').onclick = function() {
+        if (this.textContent === "---") return;
+        navigator.clipboard.writeText(this.textContent);
+        const old = this.textContent;
+        this.textContent = "¡COPIADO!";
+        setTimeout(() => this.textContent = old, 1000);
+    };
+</script>
+    </div>
+
+    <div class="nwn-post-footer">
+        <a href="/blog/" class="nwn-back-button">← Volver a las Crónicas</a>
+    </div>
+</article>
+
+    <footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-social-icons">
+      <a href="URL_DE_STEAM" target="_blank" title="Steam Workshop">
+        <i class="fa-brands fa-steam"></i>
+      </a>
+      <a href="URL_DE_VAULT" target="_blank" title="Neverwinter Vault">
+        <i class="fa-solid fa-box-archive"></i>
+      </a>
+      <a href="https://discordapp.com/users/567698811208597554" target="_blank" title="Discord">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:contact@rhapsode.es">
+        <i class="fa-solid fa-envelope"></i> contact@rhapsode.es
+      </a>
+    </div>
+
+    <div class="footer-signature">
+      <p>
+        &copy; 2026 
+        <img src="/images/logo.webp" alt="Sello Rhapsode" class="footer-mini-logo">
+        <span class="brand-name">Rhapsode</span> - Forjando ideas en el NWN desde 2002.
+      </p>
+    </div>
+
+  </div>
+  
+<div class="nwn-music-container">
+    <div class="nwn-music-controls">
+        <button id="music-toggle" class="gem-button" onclick="toggleMusic()">
+            <i id="music-icon" class="fas fa-gem"></i>
+            <div class="gem-glow"></div>
+        </button>
+        
+        <button id="next-track" class="next-button" onclick="nextTrack()">
+            <i class="fas fa-step-forward"></i>
+        </button>
+    </div>
+
+    <audio id="bg-music" onended="nextTrack()">
+        <source id="audio-source" src="/music/echoes.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+    const playlist = [
+        "/music/echoes.mp3", 
+        "/music/silent.mp3"  
+    ];
+    let currentTrack = 0;
+    const audio = document.getElementById('bg-music');
+    const source = document.getElementById('audio-source');
+    const icon = document.getElementById('music-icon');
+    const btn = document.getElementById('music-toggle');
+
+    function toggleMusic() {
+    const audio = document.getElementById('bg-music');
+    const icon = document.getElementById('music-icon');
+    const btn = document.getElementById('music-toggle');
+    
+    if (audio.paused) {
+        audio.play();
+        btn.classList.add('active');
+        icon.className = 'fas fa-music'; 
+    } else {
+        audio.pause();
+        btn.classList.remove('active');
+        icon.className = 'fas fa-gem'; 
+    }
+}
+
+    function nextTrack() {
+        currentTrack = (currentTrack + 1) % playlist.length;
+        source.src = playlist[currentTrack];
+        audio.load();
+        if (btn.classList.contains('active')) {
+            audio.play();
+        }
+    }
+</script>
+</footer>
+  </div>
+
+  
+
+  
+    <script type="text/javascript" src="/js/bundle.js"></script>
+  
+
+  
+  
+
+  
+  
+
+  
+
+</body>
+</html>

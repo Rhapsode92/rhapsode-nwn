@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rhapsode NWN</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on Rhapsode NWN</description>
+    <generator>Hugo</generator>
+    <language>es-es</language>
+    <lastBuildDate>Thu, 12 Mar 2026 10:00:00 +0100</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>El Despertar del Forjador</title>
+      <link>//localhost:1313/blog/bienvenida/</link>
+      <pubDate>Thu, 12 Mar 2026 10:00:00 +0100</pubDate>
+      <guid>//localhost:1313/blog/bienvenida/</guid>
+      <description>&lt;p&gt;Saludos, viajero. Este es el primer registro de mi grimorio técnico. Aquí documentaré el proceso de forja de herramientas para Neverwinter Nights.&lt;/p&gt;&#xA;&lt;p&gt;El acero está frío, pero el fuego de la creación ya arde.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cámara de Utilidades</title>
+      <link>//localhost:1313/utils/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/utils/</guid>
+      <description>&lt;style&gt;&#xD;&#xA;    /* Fondo negro de seguridad SIN !important para permitir el degradado posterior */&#xD;&#xA;    html {&#xD;&#xA;        background-color: #050505;&#xD;&#xA;    }&#xD;&#xA;    /* El body empieza invisible para ocultar el flash blanco */&#xD;&#xA;    body {&#xD;&#xA;        visibility: hidden;&#xD;&#xA;        opacity: 0;&#xD;&#xA;    }&#xD;&#xA;&lt;/style&gt;&#xD;&#xA;&#xD;&#xA;&lt;script&gt;&#xD;&#xA;    window.addEventListener(&#39;load&#39;, function() {&#xD;&#xA;        // Ejecutamos cuando TODO (incluyendo el CSS del degradado) esté cargado&#xD;&#xA;        document.body.style.visibility = &#34;visible&#34;;&#xD;&#xA;        document.body.style.opacity = &#34;1&#34;;&#xD;&#xA;    });&#xD;&#xA;&lt;/script&gt;&#xD;&#xA;&#xD;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css&#34;&gt;&#xD;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;{{ &#34;css/custom.css&#34; | relURL }}&#34;&gt;&#xD;&#xA;&#xD;&#xA;&lt;div class=&#34;utilidades-wrapper&#34;&gt;&#xD;&#xA;    &lt;div class=&#34;nwn-card&#34;&gt;&#xD;&#xA;        &lt;h2 class=&#34;nwn-font gold-text&#34; style=&#34;margin-top:0;&#34;&gt;&#xD;&#xA;            &lt;i class=&#34;fas fa-magic&#34;&gt;&lt;/i&gt; Portrait Studio&#xD;&#xA;        &lt;/h2&gt;&#xD;&#xA;        &lt;p&gt;&#xD;&#xA;            Forja las cinco imágenes (.tga) necesarias para que tu héroe tenga un portrait allá donde vaya. Recomendado usar imágenes verticales.&#xD;&#xA;        &lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Crónicas del Forjador</title>
+      <link>//localhost:1313/cronicas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/cronicas/</guid>
+      <description>&lt;style&gt;&#xD;&#xA;     &#xD;&#xA;    html {&#xD;&#xA;        background-color: #050505;&#xD;&#xA;    }&#xD;&#xA;     &#xD;&#xA;    body {&#xD;&#xA;        visibility: hidden;&#xD;&#xA;        opacity: 0;&#xD;&#xA;    }&#xD;&#xA;&lt;/style&gt;&#xD;&#xA;&#xD;&#xA;&lt;script&gt;&#xD;&#xA;    window.addEventListener(&#39;load&#39;, function() {&#xD;&#xA;        &#xD;&#xA;        document.body.style.visibility = &#34;visible&#34;;&#xD;&#xA;        document.body.style.opacity = &#34;1&#34;;&#xD;&#xA;    });&#xD;&#xA;&lt;/script&gt;&#xD;&#xA;&lt;h1 class=&#34;nwn-section-title&#34;&gt;Crónicas del Forjador&lt;/h1&gt;&#xD;&#xA;&#xD;&#xA;&lt;div class=&#34;nwn-archive-stack&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &#xD;&#xA;&#xD;&#xA;    &#xD;&#xA;    &lt;article class=&#34;nwn-book-card&#34; style=&#34;--card-index: 0;&#34;&gt;&#xD;&#xA;        &#xD;&#xA;            &lt;div class=&#34;nwn-card-image&#34; style=&#34;background-image: url(&#39;//localhost:1313/images/pruebaportada.webp&#39;);&#34;&gt;&lt;/div&gt;&#xD;&#xA;        &#xD;&#xA;        &#xD;&#xA;        &lt;div class=&#34;nwn-book-body&#34;&gt;&#xD;&#xA;            &lt;span class=&#34;nwn-book-date&#34;&gt;12 Mar, 2026&lt;/span&gt;&#xD;&#xA;            &lt;h2 class=&#34;nwn-book-title&#34;&gt;&lt;a href=&#34;//localhost:1313/blog/bienvenida/&#34;&gt;El Despertar del Forjador&lt;/a&gt;&lt;/h2&gt;&#xD;&#xA;            &lt;div class=&#34;nwn-summary-container&#34;&gt;&#xD;&#xA;              &lt;p class=&#34;nwn-book-summary&#34;&gt;&lt;p&gt;Saludos, viajero. Este es el primer registro de mi grimorio técnico. Aquí documentaré el proceso de forja de herramientas para Neverwinter Nights.&lt;/p&gt;&#xA;&lt;p&gt;El …&lt;/p&gt;&lt;/p&gt;&#xD;&#xA;            &lt;/div&gt;&#xD;&#xA;            &lt;a href=&#34;//localhost:1313/blog/bienvenida/&#34; class=&#34;nwn-book-link&#34;&gt;Abrir Crónica →&lt;/a&gt;&#xD;&#xA;        &lt;/div&gt;&#xD;&#xA;    &lt;/article&gt;&#xD;&#xA;    &#xD;&#xA;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

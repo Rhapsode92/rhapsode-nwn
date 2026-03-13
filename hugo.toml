@@ -1,0 +1,28 @@
+baseURL = ''
+languageCode = 'es-es'
+title = 'Rhapsode NWN'
+theme = 'hugo-fraktur'
+
+[params]
+description = "Modulos, utilidades y demás proyectos para NWN EE creados por Rhapsode"
+author = "Rhapsode"
+showStorageCode = true
+custom_css = ["css/custom.css"]
+[menu]
+[[menu.main]]
+    identifier = "fa-dice-d20"
+    name = "Inicio"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    identifier = "fa-scroll"
+    name = "Blog"
+    url = "/cronicas/"
+    weight = 2
+
+[[menu.main]]
+    identifier = "fa-tools"
+    name = "Utilidades"
+    url = "/utils/"
+    weight = 3 

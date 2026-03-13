@@ -1,0 +1,31 @@
+{{ define "body_classes" }}nwn-archive-page{{ end }}
+
+{{ define "main" }}
+<div class="nwn-archive-wrapper">
+    <header class="nwn-archive-header">
+        <h1 class="nwn-gold-title">Crónicas del Forjador</h1>
+        <p class="nwn-cream-flavor">Registros de misiones, diarios de desarrollo y grimorios técnicos.</p>
+        <div class="separator-nwn"></div>
+    </header>
+
+    <div class="nwn-entries-stack">
+        {{ range .Paginator.Pages }}
+        <article class="nwn-book-entry">
+            <div class="nwn-entry-side"></div>
+            <div class="nwn-entry-content">
+                <span class="nwn-entry-date">{{ .Date.Format "02 Jan, 2006" }}</span>
+                <h2 class="nwn-entry-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h2>
+                <p class="nwn-entry-summary">
+                    {{ if .Description }} {{ .Description }} {{ else }} {{ .Summary | truncate 200 }} {{ end }}
+                </p>
+                <a href="{{ .Permalink }}" class="nwn-entry-link">Abrir Crónica →</a>
+            </div>
+        </article>
+        {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

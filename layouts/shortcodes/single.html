@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article class="nwn-post-single">
+    {{ if .Params.header_image }}
+    <div class="nwn-post-header-img" style="background-image: url('{{ .Params.header_image | absURL }}');">
+        <div class="nwn-header-overlay">
+            <span class="nwn-post-date">{{ .Date.Format "02 de Enero, 2006" }}</span>
+            <h1 class="nwn-post-main-title">{{ .Title }}</h1>
+        </div>
+    </div>
+    {{ else }}
+    <header class="nwn-post-header-simple">
+        <span class="nwn-post-date">{{ .Date.Format "02 de Enero, 2006" }}</span>
+        <h1 class="nwn-post-main-title">{{ .Title }}</h1>
+        <div class="separator-nwn"></div>
+    </header>
+    {{ end }}
+
+    <div class="nwn-post-content">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}
