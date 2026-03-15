@@ -1,0 +1,40 @@
+{{ define "body_classes" }}nwn-cronicas-page{{ end }}
+
+{{ define "main" }}
+<div class="nwn-blog-container">
+    <header class="nwn-blog-header">
+        <h1 class="nwn-title-gold">Crónicas del Forjador</h1>
+        <p class="nwn-flavor-text">Diarios de desarrollo, guías y relatos de mis proyectos presentes, pasados y futuros.</p>
+        <div class="separator-nwn"></div>
+    </header>
+
+    <div class="nwn-posts-stack">
+        {{ range .Paginator.Pages }}
+        <article class="nwn-post-card">
+            <div class="nwn-post-header">
+                <span class="nwn-date">{{ .Date.Format "02 Enero, 2006" }}</span>
+                <h2 class="nwn-post-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h2>
+            </div>
+            
+            <div class="nwn-post-body">
+                <p>
+                    {{ if .Description }}
+                        {{ .Description }}
+                    {{ else }}
+                        {{ .Summary | truncate 180 }}
+                    {{ end }}
+                </p>
+            </div>
+
+            <div class="nwn-post-footer">
+                <a href="{{ .Permalink }}" class="nwn-btn-read">Leer Crónica</a>
+            </div>
+        </article>
+        {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

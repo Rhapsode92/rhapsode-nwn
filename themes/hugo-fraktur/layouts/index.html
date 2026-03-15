@@ -1,0 +1,131 @@
+{{ define "main" }}
+<style>
+    html { background-color: #050505 !important; }
+    body { visibility: hidden; opacity: 0; }
+</style>
+<script>
+    window.addEventListener('load', function() {
+        document.body.style.visibility = "visible";
+        document.body.style.opacity = "1";
+    });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+<main class="home-wrapper">
+    <section class="hero-nwn">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1 class="nwn-font gold-text">Rhapsode</h1>
+            <p class="flavor-text">
+                Forjando mundos, herramientas y relatos para Neverwinter Nights desde hace más de dos décadas. 
+                He sido DM, mapper, Administrador y scripter en varios servidores. Mi gran proyecto antes de esta web
+				fue <b>Tierras Desoladas</b>, del que fui creador y administrador principal durante más de 6 años. Ahora, 
+				cansado (un poco) del juego online y más mayor, me dedico a la creación de herramientas y traducciones
+				para la comunidad así como módulos exclusivos para un solo jugador. 
+            </p>
+			<p class="flavor-text">
+				Te recomiendo revisar la página de utilidades, donde encontrarás herramientas para la comunidad como
+				el <b>Portrait Studio</b> o el <b>Generador de nombres de Fantasía</b>. Revisa también las traducciones
+				que estoy haciendo para la comunidad hispanohablante y el blog, donde podrás ver todos los avances en 
+				todo lo que voy haciendo. No dudes en contactarme por Discord, nos leemos ;).
+			</p>
+        </div>
+
+        <div class="hero-portrait">
+            <div class="portrait-frame-hero">
+                <img src="/images/rhapsode.webp" alt="Rhapsode Portrait">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <hr class="separator-nwn">
+	
+	<section class="home-gallery">
+    <h2 class="section-title">Galería</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="/images/galeria/captura1.webp" alt="Combate épico">
+            <div class="gallery-overlay"><span>Bosques de Neeverinvierno</span></div>
+        </div>
+        <div class="gallery-item">
+            <img src="/images/galeria/captura2.jpg" alt="Taberna">
+            <div class="gallery-overlay"><span>La Taberna del Bardo</span></div>
+        </div>
+        <div class="gallery-item">
+            <img src="/images/galeria/captura3.jpg" alt="Exploración">
+            <div class="gallery-overlay"><span>Ruinas Arcanas</span></div>
+        </div>
+        </div>
+</section>
+
+	<hr class="separator-nwn">
+
+    <h2 class="section-title nwn-font">Mis proyectos actuales</h2>
+    <section class="projects-grid">
+    
+    <div class="project-card">
+        <div class="project-image" style="background-image: url('/images/tu-proyecto-1.jpg');"></div>
+        <div class="project-info">
+            <h3 class="nwn-font">Nombre del Proyecto</h3>
+            <p class="flavor-text">Descripción breve del proyecto con el nuevo color crema.</p>
+            <div class="project-links">
+                <a href="/posts/tu-post" class="btn-details">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-image" style="background-image: url('/images/tu-proyecto-2.jpg');"></div>
+        <div class="project-info">
+            <h3 class="nwn-font">Segundo Proyecto</h3>
+            <p class="flavor-text">Otro gran trabajo para el Aurora Engine.</p>
+            <div class="project-links">
+                <a href="/posts/tu-post-2" class="btn-details">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+</main>
+
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="lightbox-caption"></div>
+</div>
+<script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const captionText = document.getElementById("lightbox-caption");
+    const closeBtn = document.querySelector(".lightbox-close");
+
+    // Seleccionamos todas las imágenes de la galería
+    document.querySelectorAll(".gallery-item").forEach(item => {
+        item.addEventListener("click", () => {
+            const img = item.querySelector("img");
+            const overlayText = item.querySelector(".gallery-overlay span");
+            
+            lightbox.style.display = "block";
+            lightboxImg.src = img.src;
+            captionText.innerHTML = overlayText.innerHTML;
+        });
+    });
+
+    // Cerrar al pulsar la X
+    closeBtn.onclick = () => { lightbox.style.display = "none"; };
+
+    // Cerrar al pulsar fuera de la imagen
+    lightbox.onclick = (e) => {
+        if (e.target !== lightboxImg && e.target !== captionText) {
+            lightbox.style.display = "none";
+        }
+    };
+
+    // Cerrar con la tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") lightbox.style.display = "none";
+    });
+</script>
+{{ end }}

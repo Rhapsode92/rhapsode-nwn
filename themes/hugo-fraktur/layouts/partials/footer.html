@@ -1,0 +1,85 @@
+<footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-social-icons">
+      <a href="URL_DE_STEAM" target="_blank" title="Steam Workshop">
+        <i class="fa-brands fa-steam"></i>
+      </a>
+      <a href="URL_DE_VAULT" target="_blank" title="Neverwinter Vault">
+        <i class="fa-solid fa-box-archive"></i>
+      </a>
+      <a href="https://discordapp.com/users/567698811208597554" target="_blank" title="Discord">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:contact@rhapsode.es">
+        <i class="fa-solid fa-envelope"></i> contact@rhapsode.es
+      </a>
+    </div>
+
+    <div class="footer-signature">
+      <p>
+        &copy; {{ now.Format "2006" }} 
+        <img src="/images/logo.webp" alt="Sello Rhapsode" class="footer-mini-logo">
+        <span class="brand-name">Rhapsode</span> - Forjando ideas en el NWN desde 2002.
+      </p>
+    </div>
+
+  </div>
+  
+<div class="nwn-music-container">
+    <div class="nwn-music-controls">
+        <button id="music-toggle" class="gem-button" onclick="toggleMusic()">
+            <i id="music-icon" class="fas fa-gem"></i>
+            <div class="gem-glow"></div>
+        </button>
+        
+        <button id="next-track" class="next-button" onclick="nextTrack()">
+            <i class="fas fa-step-forward"></i>
+        </button>
+    </div>
+
+    <audio id="bg-music" onended="nextTrack()">
+        <source id="audio-source" src="/music/echoes.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+    const playlist = [
+        "/music/echoes.mp3", // Tu primera canción épica
+        "/music/silent.mp3"  // Esta nueva canción ambiental
+    ];
+    let currentTrack = 0;
+    const audio = document.getElementById('bg-music');
+    const source = document.getElementById('audio-source');
+    const icon = document.getElementById('music-icon');
+    const btn = document.getElementById('music-toggle');
+
+    function toggleMusic() {
+    const audio = document.getElementById('bg-music');
+    const icon = document.getElementById('music-icon');
+    const btn = document.getElementById('music-toggle');
+    
+    if (audio.paused) {
+        audio.play();
+        btn.classList.add('active');
+        icon.className = 'fas fa-music'; // Cambia el icono a corchea
+    } else {
+        audio.pause();
+        btn.classList.remove('active');
+        icon.className = 'fas fa-gem'; // Vuelve a la gema
+    }
+}
+
+    function nextTrack() {
+        currentTrack = (currentTrack + 1) % playlist.length;
+        source.src = playlist[currentTrack];
+        audio.load();
+        if (btn.classList.contains('active')) {
+            audio.play();
+        }
+    }
+</script>
+</footer>

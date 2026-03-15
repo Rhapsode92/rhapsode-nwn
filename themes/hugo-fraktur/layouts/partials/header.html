@@ -1,0 +1,27 @@
+<link rel="icon" type="image/x-icon" href="{{ "images/favicon.ico" | relURL }}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="{{ "css/custom.css" | absURL }}?v={{ now.Unix }}">
+
+<header class="site-header">
+  <div class="nav-container">
+    <div class="logo-block">
+      <a href="/">
+        <img src="/images/logo2.webp" alt="Logo" class="site-logo">
+      </a>
+    </div>
+    
+    <nav class="menu-main">
+      <ul>
+    {{ range .Site.Menus.main }}
+    <li>
+        <a href="{{ .URL }}">
+            <i class="fas {{ .Identifier }}"></i> {{ .Name }}
+        </a>
+    </li>
+    {{ end }}
+</ul>
+    </nav>
+  </div>
+</header>
