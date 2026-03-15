@@ -1,4 +1,6 @@
-baseURL = 'https://Rhapsode92.github.io/rhapsode-nwn/'
+baseURL = "https://Rhapsode92.github.io/rhapsode-nwn/"
+canonifyURLs = true
+relativeURLs = true
 languageCode = 'es-es'
 title = 'Rhapsode NWN'
 theme = 'hugo-fraktur'
