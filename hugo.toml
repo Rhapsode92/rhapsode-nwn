@@ -1,6 +1,7 @@
 baseURL = "http://rhapsode.es"
 languageCode = "es-es"
 title = "Rhapsode NWN"
+description = "Blog de Rhapsode donde puedes encontrar todas las herramientas, traducciones y modulos que he realizado para el juego Neverwinter Nights Enhanced Edition así como mi blog acerca de Fantasía"
 theme = "hugo-fraktur"
 
 # Ajustes de rutas para GitHub Pages
