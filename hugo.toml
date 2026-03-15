@@ -1,4 +1,4 @@
-baseURL = "https://Rhapsode92.github.io/rhapsode-nwn/"
+baseURL = "http://rhapsode.es"
 languageCode = "es-es"
 title = "Rhapsode NWN"
 theme = "hugo-fraktur"
