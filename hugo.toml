@@ -1,9 +1,11 @@
 baseURL = "https://Rhapsode92.github.io/rhapsode-nwn/"
+languageCode = "es-es"
+title = "Rhapsode NWN"
+theme = "hugo-fraktur"
+
+# Ajustes de rutas para GitHub Pages
 canonifyURLs = true
-relativeURLs = true
-languageCode = 'es-es'
-title = 'Rhapsode NWN'
-theme = 'hugo-fraktur'
+relativeURLs = false  # <--- CAMBIA ESTO A FALSE
 
 [params]
 description = "Modulos, utilidades y demás proyectos para NWN EE creados por Rhapsode"

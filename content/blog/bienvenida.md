@@ -1,7 +1,7 @@
 ---
 title: "El Despertar del Forjador"
 date: 2026-03-12T10:00:00+01:00
-image: "/images/pruebaportada.webp"
+image: "images/pruebaportada.webp"
 draft: false
 description: "La primera entrada en los diarios de Rhapsode-NWN."
 ---
