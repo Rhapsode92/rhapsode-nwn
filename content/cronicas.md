@@ -1,6 +1,6 @@
 ---
 title: "Crónicas del Forjador"
-layout: "single"
+layout: "lista"
 ---
 
 {{< lista_cronicas >}}
