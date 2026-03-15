@@ -1,0 +1,25 @@
+<div class="nwn-box nwn-box-{{ .Get "type" | default "info" }}">
+    <div class="nwn-box-header">
+        <i class="{{ if eq (.Get "type") "danger" }}fas fa-skull-crossbones{{ else if eq (.Get "type") "warning" }}fas fa-exclamation-triangle{{ else }}fas fa-scroll{{ end }}"></i>
+        {{ .Get "title" | upper }}
+    </div>
+    <div class="nwn-box-content">
+        {{ .Inner | markdownify }}
+    </div>
+</div>
+
+<style>
+.nwn-box { margin: 20px 0; border-radius: 4px; border-left: 5px solid; background: rgba(0,0,0,0.2); overflow: hidden; font-family: 'Lora', serif; }
+.nwn-box-header { padding: 8px 15px; font-weight: bold; font-size: 0.9em; letter-spacing: 1px; color: #fff; display: flex; align-items: center; gap: 10px; }
+.nwn-box-content { padding: 15px; color: #e0e0e0; font-style: italic; }
+
+/* Tipos de cajas */
+.nwn-box-info { border-color: #c5a059; }
+.nwn-box-info .nwn-box-header { background: rgba(197, 160, 89, 0.3); }
+
+.nwn-box-warning { border-color: #d4a017; }
+.nwn-box-warning .nwn-box-header { background: rgba(212, 160, 23, 0.3); }
+
+.nwn-box-danger { border-color: #8b0000; }
+.nwn-box-danger .nwn-box-header { background: rgba(139, 0, 0, 0.3); }
+</style>
