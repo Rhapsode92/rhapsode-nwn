@@ -58,11 +58,22 @@ h1, h2, h3, h4, .post-title {
     margin: 0 auto;
 }
 
-.site-logo {
+/* --- 2. HEADER (UNIFICADO) --- */
+.site-logo, 
+header .site-logo, 
+.nav-container .site-logo {
     display: block !important;
-    width: 300px !important;
+    width: 320px !important; /* Ajusta este valor al tamaño que más te guste */
     height: auto !important;
+    max-width: 100% !important;
     transition: all 0.3s ease !important;
+    margin: 0 !important; /* Evita desplazamientos extraños en interiores */
+}
+
+/* Aseguramos que el contenedor del logo no lo limite en páginas internas */
+.brand, .site-branding, .logo-wrapper {
+    width: auto !important;
+    background: transparent !important;
 }
 
 .site-logo:hover {
@@ -309,7 +320,10 @@ footer, .footer {
     padding: 30px;
     text-align: center;
     font-size: 2.2rem;
-    color: #00ffd4;
+    color: #00ffd4 !important; /* Forzamos el color cian */
+    
+    /* Evita que se aplique cualquier estilo de "Letra Capital" aquí */
+    display: block !important;
 }
 /* --- 6. PÁGINA DE INICIO (HOME) --- */
 .home-wrapper {
@@ -678,17 +692,15 @@ footer, .footer {
     animation-delay: calc(var(--card-index) * 0.15s);
 }
 
-/* --- 8. LETRAS CAPITALES (ESTILO MANUSCRITO REFORZADO) --- */
+/* --- 8. LETRAS CAPITALES (REFINADAS) --- */
 
-/* Selectores globales: Inicio, Utilidades y Contenido de Posts */
+/* Aplicar solo a párrafos de texto real, excluyendo zonas de herramientas */
 .home-wrapper p:first-of-type::first-letter,
-.utilidades-wrapper p:first-of-type::first-letter,
 .post-content p:first-of-type::first-letter,
-/* Selector específico para tus tarjetas personalizadas */
 .nwn-book-card .nwn-book-body .nwn-book-summary::first-letter {
     font-family: 'Cinzel', serif !important;
     float: left !important;
-    display: inline-block !important; /* CRUCIAL para que se renderice */
+    display: inline-block !important;
     font-size: 3.8rem !important;
     line-height: 0.8 !important;
     margin: 5px 12px 0 0 !important;
@@ -698,10 +710,47 @@ footer, .footer {
     text-transform: uppercase !important;
 }
 
-/* Ajuste de seguridad para el contenedor del resumen */
-.nwn-book-summary {
-    display: block !important; /* Fuerza el renderizado de la pseudoclase */
-    overflow: hidden; /* Evita que la letra capital se salga del flujo */
+/* QUITAMOS .utilidades-wrapper p:first-of-type del selector anterior 
+   y añadimos esta regla específica para que los párrafos de utilidades 
+   SÍ tengan letra capital pero NO dentro de la drop-zone o selectores.
+*/
+.utilidades-wrapper > p:first-of-type::first-letter,
+.nwn-card > p:first-of-type::first-letter {
+    /* Mismos estilos que arriba para mantener coherencia si decides poner un texto introductorio */
+    font-family: 'Cinzel', serif !important;
+    float: left !important;
+    font-size: 3.8rem !important;
+    line-height: 0.8 !important;
+    margin: 5px 12px 0 0 !important;
+    color: #c5a059 !important;
+}
+
+/* EXCLUSIÓN EXPLÍCITA: Evita la letra capital en herramientas y resetea al color correcto */
+.drop-zone p::first-letter, 
+.name-display-box::first-letter,
+.nwn-card .drop-zone p:first-of-type::first-letter {
+    float: none !important;
+    font-family: 'Quattrocento', serif !important;
+    font-size: inherit !important;
+    color: #e2c08d !important; /* El color crema genérico de tu web */
+    text-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
+}
+/* EXCLUSIÓN EXPLÍCITA: Limpieza total para herramientas */
+.drop-zone p::first-letter, 
+.name-display-box::first-letter, 
+#name-result::first-letter {
+    float: none !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    /* El color cian mágico del resultado para que sea uniforme */
+    color: #00ffd4 !important; 
+    text-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
 }
 
 /* --- 9. REPRODUCTOR: GEMA Y SATÉLITE --- */
@@ -870,4 +919,126 @@ footer, .footer {
 .nwn-back-button:hover {
     color: #00ffd4;
     transform: translateX(-5px);
+}
+
+/* --- 12. GALERÍA EN PÁGINA PRINCIPAL --- */
+.home-gallery {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border: 2px solid rgba(197, 160, 89, 0.4); /* Dorado sutil */
+    transition: 0.4s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.3) contrast(1.1);
+    transition: 0.5s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 26, 26, 0.7); /* Fondo turquesa oscuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.gallery-overlay span {
+    font-family: 'Cinzel', serif;
+    color: #00ffd4;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid #00ffd4;
+    padding: 5px 10px;
+}
+
+/* Efectos al pasar el ratón */
+.gallery-item:hover {
+    border-color: #00ffd4;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 255, 212, 0.3);
+}
+
+.gallery-item:hover img {
+    filter: sepia(0) contrast(1);
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* --- 13. LIGHTBOX --- */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 5, 0.95); /* Fondo casi negro */
+    backdrop-filter: blur(5px); /* Desenfoque de fondo */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 80vh;
+    border: 2px solid #c5a059; /* Borde dorado */
+    box-shadow: 0 0 30px rgba(0, 255, 212, 0.2);
+    animation: zoom 0.3s ease-in-out;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #e2c08d;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox-close:hover {
+    color: #00ffd4;
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: #c5a059;
+    font-family: 'Cinzel', serif;
+    padding: 20px 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
 }
