@@ -1063,3 +1063,51 @@ footer, .footer {
 .nwn-post-footer .gold-button-action:hover {
     transform: translateX(-5px); /* Pequeño desplazamiento a la izquierda al ser un botón de "volver" */
 }
+/* --- AJUSTE MÓVIL: HEADER Y MENÚ --- */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        flex-direction: column !important;
+        padding: 10px !important;
+    }
+
+    .site-logo, header .site-logo {
+        width: 200px !important; /* Logo más pequeño en móvil */
+        margin-bottom: 20px !important;
+    }
+
+    .menu-main ul {
+        flex-direction: column !important; /* Menú en lista vertical */
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    .menu-main ul li {
+        margin-left: 0 !important; /* Quitamos el margen lateral de desktop */
+    }
+}
+/* --- AJUSTE MÓVIL: LIBRERÍA DE CRÓNICAS --- */
+@media screen and (max-width: 768px) {
+    .nwn-book-card {
+        flex-direction: column !important; /* Imagen arriba, texto abajo */
+        min-height: auto !important;
+    }
+
+    .nwn-card-image {
+        width: 100% !important;
+        height: 200px !important; /* Altura fija para la "portada" en móvil */
+        border-right: none !important;
+        border-bottom: 2px solid #c5a059 !important;
+    }
+
+    .nwn-book-spine {
+        display: none !important; /* Ocultamos el lomo decorativo en móvil para ganar espacio */
+    }
+
+    .nwn-book-body {
+        padding: 20px !important;
+    }
+
+    .nwn-book-title a {
+        font-size: 1.6rem !important; /* Título un poco más pequeño para pantallas pequeñas */
+    }
+}
