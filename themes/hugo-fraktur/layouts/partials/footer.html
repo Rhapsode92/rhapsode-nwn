@@ -42,18 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (toggle && menu) {
         toggle.addEventListener('click', function(e) {
-            e.preventDefault(); // Evita cualquier comportamiento extraño
+            e.preventDefault();
             menu.classList.toggle('show');
             
             const icon = toggle.querySelector('i');
             if (menu.classList.contains('show')) {
-                icon.classList.replace('fa-bars', 'fa-times');
+                icon.className = 'fas fa-times'; // Cambia a X
             } else {
-                icon.classList.replace('fa-times', 'fa-bars');
+                icon.className = 'fas fa-bars'; // Vuelve a hamburguesa
             }
         });
-    } else {
-        console.error("No se encontró el botón o el menú en el HTML");
     }
 });
     /* --- SCRIPT REPRODUCTOR DE MÚSICA --- */

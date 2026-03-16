@@ -1065,63 +1065,66 @@ footer, .footer {
 }
 /* --- 14. CORRECCIONES MÓVIL DEFINITIVAS --- */
 
-/* 1. Estado base: Oculto en PC */
+/* Oculto en PC */
 .menu-toggle { 
     display: none !important; 
 }
 
 @media screen and (max-width: 768px) {
-    /* 2. Forzar contenedor en línea */
+    /* Forzamos que el header no colapse */
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 10px 20px !important;
-    }
-
-    /* 3. EL BOTÓN: Usamos visibilidad forzada */
-    .menu-toggle {
-        display: block !important; /* Sobrescribe el oculto de PC */
-        visibility: visible !important;
-        background: transparent !important;
-        border: 1px solid #c5a059 !important;
-        color: #c5a059 !important;
         padding: 10px 15px !important;
-        font-size: 1.5rem !important;
-        cursor: pointer !important;
-        z-index: 9999 !important;
+        height: 80px !important;
+        position: relative !important;
     }
 
-    /* 4. El Menú Desplegable */
+    /* FORZAR VISIBILIDAD DEL BOTÓN */
+    .menu-toggle {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        border: 1.5px solid #c5a059 !important;
+        color: #c5a059 !important;
+        padding: 8px 12px !important;
+        font-size: 1.4rem !important;
+        cursor: pointer !important;
+        z-index: 9999 !important; /* Por encima de todo */
+    }
+
+    /* Menú desplegable */
     .menu-main ul.nav-menu {
         display: none !important; 
         position: absolute !important;
-        top: 100% !important;
+        top: 80px !important; 
         left: 0 !important;
         width: 100% !important;
-        background: rgba(5, 5, 5, 0.98) !important;
+        background: rgba(10, 10, 10, 0.98) !important;
         border-bottom: 2px solid #c5a059 !important;
         flex-direction: column !important;
         padding: 20px 0 !important;
-        margin: 0 !important;
-        list-style: none !important;
         z-index: 9998 !important;
+        list-style: none !important;
     }
 
-    /* 5. Mostrar menú (clase que pone el JS) */
+    /* Mostrar al activar */
     .menu-main ul.nav-menu.show {
         display: flex !important;
     }
 
     .menu-main ul li {
-        margin: 15px 0 !important;
         width: 100% !important;
         text-align: center !important;
-        display: block !important;
+        margin: 10px 0 !important;
     }
 
+    /* Reducir logo para que no empuje el botón */
     .site-logo {
-        width: 150px !important;
+        max-width: 140px !important;
+        height: auto !important;
     }
 }
