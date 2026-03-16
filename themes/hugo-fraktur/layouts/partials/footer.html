@@ -35,21 +35,27 @@
   </div>
 
   <script>
-    /* --- SCRIPT MENÚ HAMBURGUESA --- */
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.nav-menu');
+/* --- SCRIPT MENÚ HAMBURGUESA --- */
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-menu');
 
-        if (toggle && menu) {
-            toggle.addEventListener('click', function() {
-                menu.classList.toggle('show');
-                const icon = toggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
-        }
-    });
-
+    if (toggle && menu) {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault(); // Evita cualquier comportamiento extraño
+            menu.classList.toggle('show');
+            
+            const icon = toggle.querySelector('i');
+            if (menu.classList.contains('show')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+    } else {
+        console.error("No se encontró el botón o el menú en el HTML");
+    }
+});
     /* --- SCRIPT REPRODUCTOR DE MÚSICA --- */
     const playlist = ["/music/echoes.mp3", "/music/silent.mp3"];
     let currentTrack = 0;

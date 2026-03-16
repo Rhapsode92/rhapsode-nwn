@@ -1063,42 +1063,39 @@ footer, .footer {
 .nwn-post-footer .gold-button-action:hover {
     transform: translateX(-5px); /* Pequeño desplazamiento a la izquierda al ser un botón de "volver" */
 }
-/* --- 14. CORRECCIONES MÓVIL (MENÚ Y TARJETAS) --- */
+/* --- 14. CORRECCIONES MÓVIL DEFINITIVAS --- */
 
-/* Ocultar botón en PC por defecto */
-.menu-toggle { display: none !important; }
+/* 1. Estado base: Oculto en PC */
+.menu-toggle { 
+    display: none !important; 
+}
 
 @media screen and (max-width: 768px) {
-    /* Header: Logo Izquierda, Botón Derecha */
+    /* 2. Forzar contenedor en línea */
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
         padding: 10px 20px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
     }
 
-    .site-logo, header .site-logo {
-        width: 160px !important; /* Logo más manejable en móvil */
-        margin: 0 !important;
-    }
-
+    /* 3. EL BOTÓN: Usamos visibilidad forzada */
     .menu-toggle {
-        display: block !important;
-        background: transparent;
-        border: 1px solid #c5a059;
-        color: #c5a059;
-        padding: 8px 12px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        z-index: 1001;
+        display: block !important; /* Sobrescribe el oculto de PC */
+        visibility: visible !important;
+        background: transparent !important;
+        border: 1px solid #c5a059 !important;
+        color: #c5a059 !important;
+        padding: 10px 15px !important;
+        font-size: 1.5rem !important;
+        cursor: pointer !important;
+        z-index: 9999 !important;
     }
 
-    /* Menú desplegable tipo "capa" */
+    /* 4. El Menú Desplegable */
     .menu-main ul.nav-menu {
-        display: none !important; /* Escondido */
+        display: none !important; 
         position: absolute !important;
         top: 100% !important;
         left: 0 !important;
@@ -1108,36 +1105,23 @@ footer, .footer {
         flex-direction: column !important;
         padding: 20px 0 !important;
         margin: 0 !important;
-        z-index: 1000;
         list-style: none !important;
+        z-index: 9998 !important;
     }
 
-    /* Mostrar menú al pulsar */
+    /* 5. Mostrar menú (clase que pone el JS) */
     .menu-main ul.nav-menu.show {
         display: flex !important;
     }
 
     .menu-main ul li {
         margin: 15px 0 !important;
-        justify-content: center !important;
-    }
-
-    /* Ajuste de Tarjetas de Crónicas */
-    .nwn-book-card {
-        flex-direction: column !important;
-        min-height: auto !important;
-    }
-
-    .nwn-card-image {
         width: 100% !important;
-        height: 200px !important;
-        border-right: none !important;
-        border-bottom: 2px solid #c5a059 !important;
+        text-align: center !important;
+        display: block !important;
     }
 
-    .nwn-book-spine { display: none !important; }
-    
-    .nwn-book-body { padding: 20px !important; }
-
-    .nwn-book-title a { font-size: 1.6rem !important; }
+    .site-logo {
+        width: 150px !important;
+    }
 }
