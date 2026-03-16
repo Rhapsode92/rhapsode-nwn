@@ -1,7 +1,5 @@
 <link rel="icon" type="image/x-icon" href="{{ "images/favicon.ico" | relURL }}">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 <link rel="stylesheet" href="{{ "css/custom.css" | absURL }}?v={{ now.Unix }}">
 
 <header class="site-header">
@@ -13,15 +11,20 @@
     </div>
     
     <nav class="menu-main">
-      <ul>
-    {{ range .Site.Menus.main }}
-    <li>
-        <a href="{{ .URL }}">
-            <i class="fas {{ .Identifier }}"></i> {{ .Name }}
-        </a>
-    </li>
-    {{ end }}
-</ul>
+      <button class="menu-toggle" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+        {{ range .Site.Menus.main }}
+        <li>
+            <a href="{{ .URL }}">
+                <i class="fas {{ .Identifier }}"></i> {{ .Name }}
+            </a>
+        </li>
+        {{ end }}
+      </ul>
     </nav>
   </div>
 </header>

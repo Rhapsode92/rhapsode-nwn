@@ -1063,51 +1063,81 @@ footer, .footer {
 .nwn-post-footer .gold-button-action:hover {
     transform: translateX(-5px); /* Pequeño desplazamiento a la izquierda al ser un botón de "volver" */
 }
-/* --- AJUSTE MÓVIL: HEADER Y MENÚ --- */
+/* --- 14. CORRECCIONES MÓVIL (MENÚ Y TARJETAS) --- */
+
+/* Ocultar botón en PC por defecto */
+.menu-toggle { display: none !important; }
+
 @media screen and (max-width: 768px) {
+    /* Header: Logo Izquierda, Botón Derecha */
     .nav-container {
-        flex-direction: column !important;
-        padding: 10px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .site-logo, header .site-logo {
-        width: 200px !important; /* Logo más pequeño en móvil */
-        margin-bottom: 20px !important;
+        width: 160px !important; /* Logo más manejable en móvil */
+        margin: 0 !important;
     }
 
-    .menu-main ul {
-        flex-direction: column !important; /* Menú en lista vertical */
-        align-items: center !important;
-        gap: 15px !important;
+    .menu-toggle {
+        display: block !important;
+        background: transparent;
+        border: 1px solid #c5a059;
+        color: #c5a059;
+        padding: 8px 12px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    /* Menú desplegable tipo "capa" */
+    .menu-main ul.nav-menu {
+        display: none !important; /* Escondido */
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: rgba(5, 5, 5, 0.98) !important;
+        border-bottom: 2px solid #c5a059 !important;
+        flex-direction: column !important;
+        padding: 20px 0 !important;
+        margin: 0 !important;
+        z-index: 1000;
+        list-style: none !important;
+    }
+
+    /* Mostrar menú al pulsar */
+    .menu-main ul.nav-menu.show {
+        display: flex !important;
     }
 
     .menu-main ul li {
-        margin-left: 0 !important; /* Quitamos el margen lateral de desktop */
+        margin: 15px 0 !important;
+        justify-content: center !important;
     }
-}
-/* --- AJUSTE MÓVIL: LIBRERÍA DE CRÓNICAS --- */
-@media screen and (max-width: 768px) {
+
+    /* Ajuste de Tarjetas de Crónicas */
     .nwn-book-card {
-        flex-direction: column !important; /* Imagen arriba, texto abajo */
+        flex-direction: column !important;
         min-height: auto !important;
     }
 
     .nwn-card-image {
         width: 100% !important;
-        height: 200px !important; /* Altura fija para la "portada" en móvil */
+        height: 200px !important;
         border-right: none !important;
         border-bottom: 2px solid #c5a059 !important;
     }
 
-    .nwn-book-spine {
-        display: none !important; /* Ocultamos el lomo decorativo en móvil para ganar espacio */
-    }
+    .nwn-book-spine { display: none !important; }
+    
+    .nwn-book-body { padding: 20px !important; }
 
-    .nwn-book-body {
-        padding: 20px !important;
-    }
-
-    .nwn-book-title a {
-        font-size: 1.6rem !important; /* Título un poco más pequeño para pantallas pequeñas */
-    }
+    .nwn-book-title a { font-size: 1.6rem !important; }
 }
