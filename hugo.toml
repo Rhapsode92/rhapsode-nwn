@@ -32,7 +32,13 @@ custom_css = ["css/custom.css"]
     weight = 2
 
 [[menu.main]]
+    identifier = "fa-scroll"
+    name = "Proyectos"
+    url = "/proyectos/"
+    weight = 3
+
+[[menu.main]]
     identifier = "fa-tools"
     name = "Utilidades"
     url = "/utils/"
-    weight = 3 
+    weight = 4 

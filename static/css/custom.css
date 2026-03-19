@@ -1157,3 +1157,90 @@ article a:hover {
 .content a:visited {
     color: #a3844a;
 }
+/* --- 16. PÁGINA DE PROYECTOS (ESTILO CÓDICE) --- */
+
+.proyectos-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.centered { text-align: center; margin-bottom: 50px; }
+
+.proyecto-ficha {
+    background: rgba(15, 15, 15, 0.8);
+    border: 2px solid #c5a059;
+    border-radius: 4px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: inset 0 0 20px rgba(197, 160, 89, 0.1);
+    position: relative;
+}
+
+.proyecto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+/* Botones de descarga estilo NWN */
+.btn-nwn {
+    background: linear-gradient(to bottom, #4a3a1d, #2a1e0a);
+    color: #c5a059 !important;
+    border: 1px solid #c5a059;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    transition: all 0.2s;
+}
+
+.btn-nwn:hover {
+    background: #c5a059;
+    color: #000 !important;
+    box-shadow: 0 0 10px #c5a059;
+}
+
+/* Mini Galería dentro de la ficha */
+.proyecto-galeria {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.proyecto-galeria .gallery-item {
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    border: 1px solid #c5a059;
+    overflow: hidden;
+}
+
+.proyecto-galeria .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.proyecto-galeria .gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.proyecto-descripcion {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-left: 3px solid #c5a059;
+    font-style: italic;
+}
+
+/* Adaptación móvil */
+@media screen and (max-width: 768px) {
+    .proyecto-header { flex-direction: column; text-align: center; }
+    .proyecto-links { margin-top: 15px; }
+    .proyecto-galeria { justify-content: center; }
+}
