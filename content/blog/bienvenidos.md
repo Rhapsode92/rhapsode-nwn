@@ -2,7 +2,7 @@
 title: "Bienvenidos neverwinteros"
 date: 2026-03-16
 description: "Resumen para redes sociales."
-image: "images/bievenidos.webp"
+image: "images/bienvenidos.webp"
 categories: ["General"]
 tags: ["General", "Rol", "Neverwinter"]
 draft: false
@@ -21,7 +21,7 @@ aplicación para crear de forma inmediata portraits para vuestros personajes y u
 
 ### Proyectos a la vista
 
-Múltiples cosas pasan por mi cabeza ahora mismo, pero si puedo contaros que para empezar estoy trabajando en la traducción del sistema HR creado por Shadooow [(link aquí)] (https://neverwintervault.org/project/nwnee/other/hr-base-1400a-ee),
+Múltiples cosas pasan por mi cabeza ahora mismo, pero si puedo contaros que para empezar estoy trabajando en la traducción del sistema HR creado por Shadooow [link aquí] (https://neverwintervault.org/project/nwnee/other/hr-base-1400a-ee),
 la traducción del módulo oficial Kingmaker y estoy trabajando en la adaptación de dos oneshots del famoso retroclon de D&D "**La Marca del Este**": *La cripta nefanda de Uztum el Maldito*
 y *El Monasterio del Dragón Dormido*
 
