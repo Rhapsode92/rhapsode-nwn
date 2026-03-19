@@ -1128,3 +1128,30 @@ footer, .footer {
         height: auto !important;
     }
 }
+/* --- ESTILO DE ENLACES EN POSTS (MARKDOWN) --- */
+
+/* Color base del enlace (Dorado NWN) */
+.content a, 
+.post-content a, 
+article a {
+    color: #c5a059 !important;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-bottom: 1px dashed rgba(197, 160, 89, 0.4); /* Subrayado sutil */
+}
+
+/* Efecto al pasar el ratón */
+.content a:hover, 
+.post-content a:hover, 
+article a:hover {
+    color: #ffe4b5 !important; /* Dorado más claro/brillante */
+    text-decoration: none;
+    border-bottom: 1px solid #ffe4b5; /* El subrayado se vuelve sólido */
+    text-shadow: 0 0 8px rgba(197, 160, 89, 0.6); /* Un pequeño brillo "mágico" */
+}
+
+/* Color para enlaces ya visitados (opcional, un dorado más apagado) */
+.content a:visited {
+    color: #a3844a;
+}
