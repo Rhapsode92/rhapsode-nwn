@@ -21,7 +21,7 @@ aplicación para crear de forma inmediata portraits para vuestros personajes y u
 
 ### Proyectos a la vista
 
-Múltiples cosas pasan por mi cabeza ahora mismo, pero si puedo contaros que para empezar estoy trabajando en la traducción del sistema HR creado por Shadooow [link aquí] (https://neverwintervault.org/project/nwnee/other/hr-base-1400a-ee),
+Múltiples cosas pasan por mi cabeza ahora mismo, pero si puedo contaros que para empezar estoy trabajando en la traducción del sistema HR creado por Shadooow [link aquí](https://neverwintervault.org/project/nwnee/other/hr-base-1400a-ee),
 la traducción del módulo oficial Kingmaker y estoy trabajando en la adaptación de dos oneshots del famoso retroclon de D&D "**La Marca del Este**": *La cripta nefanda de Uztum el Maldito*
 y *El Monasterio del Dragón Dormido*
 
@@ -30,7 +30,7 @@ y *El Monasterio del Dragón Dormido*
   <img src="https://i.imgur.com/g8ygJqO.jpeg" alt="" style="max-width: 45%; height: auto; border: 1px solid #c5a059;">
 </div>
 
-Podréis ver el progreso en los próximos días en la página inicial de los cuatro proyectos. Cuando estén terminados, los encontraréis en la futura sección de descagras con links
+Podréis ver el progreso en los próximos días en la página inicial de los cuatro proyectos. Cuando estén terminados, los encontraréis en la futura sección de descargas con links
 al Neverwinter Vault y a mi página de Steam Workshop. 
 
 Aun no tengo muy claro que cosas iré escribiendo en este blog, pero supongo que es parte del descubrimiento de esta nueva perspectiva que estoy tomando del juego. 
