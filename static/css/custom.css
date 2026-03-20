@@ -1244,3 +1244,10 @@ article a:hover {
     .proyecto-links { margin-top: 15px; }
     .proyecto-galeria { justify-content: center; }
 }
+
+.projects-section .section-title {
+    margin-top: 50px !important; /* Ajusta este valor según necesites */
+    margin-bottom: 30px;
+    clear: both; /* Asegura que no haya elementos flotando que lo empujen */
+    display: block;
+}
