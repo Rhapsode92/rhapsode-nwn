@@ -19,26 +19,30 @@ author = "Rhapsode"
 showStorageCode = true
 custom_css = ["css/custom.css"]
 [menu]
-[[menu.main]]
-    identifier = "fa-dice-d20"
+  [[menu.main]]
+    identifier = "menu-inicio"
+    pre = "<i class='fas fa-dice-d20'></i>"
     name = "Inicio"
     url = "/"
     weight = 1
 
-[[menu.main]]
-    identifier = "fa-scroll"
+  [[menu.main]]
+    identifier = "menu-blog"
+    pre = "<i class='fas fa-scroll'></i>"
     name = "Blog"
     url = "/cronicas/"
     weight = 2
 
-[[menu.main]]
-    identifier = "fa-hammer"
+  [[menu.main]]
+    identifier = "menu-proyectos"
+    pre = "<i class='fas fa-hammer'></i>"
     name = "Proyectos"
     url = "/proyectos/"
     weight = 3
 
-[[menu.main]]
-    identifier = "fa-tools"
+  [[menu.main]]
+    identifier = "menu-utils"
+    pre = "<i class='fas fa-tools'></i>"
     name = "Utilidades"
     url = "/utils/"
     weight = 4

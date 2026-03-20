@@ -16,14 +16,14 @@
       </button>
 
       <ul class="nav-menu">
-        {{ range .Site.Menus.main }}
-        <li>
-            <a href="{{ .URL }}">
-                <i class="fas {{ .Identifier }}"></i> {{ .Name }}
-            </a>
-        </li>
-        {{ end }}
-      </ul>
+  {{ range .Site.Menus.main }}
+  <li>
+      <a href="{{ .URL }}">
+          {{ .Pre | safeHTML }} {{ .Name }}
+      </a>
+  </li>
+  {{ end }}
+</ul>
     </nav>
   </div>
 </header>
