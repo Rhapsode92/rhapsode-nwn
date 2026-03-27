@@ -1244,3 +1244,12 @@ article a:hover {
     .proyecto-links { margin-top: 15px; }
     .proyecto-galeria { justify-content: center; }
 }
+
+/* Loadscreens */
+#ls-drop-zone {
+    transition: all 0.3s ease;
+}
+#ls-drop-zone:hover {
+    border-color: #ffe4b5 !important;
+    box-shadow: inset 0 0 15px rgba(197, 160, 89, 0.2);
+}
