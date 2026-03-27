@@ -1253,3 +1253,13 @@ article a:hover {
     border-color: #ffe4b5 !important;
     box-shadow: inset 0 0 15px rgba(197, 160, 89, 0.2);
 }
+
+.btn-danger {
+    background: linear-gradient(to bottom, #4a1d1d, #2a0a0a) !important;
+    border-color: #a05959 !important;
+    color: #ff9999 !important;
+}
+.btn-danger:hover {
+    background: #a05959 !important;
+    color: #000 !important;
+}

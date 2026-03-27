@@ -84,33 +84,37 @@ description: "Utilidades y herramientas creadas por Rhapsode para la comunidad d
     <h2 class="nwn-font gold-text" style="margin-top: 0;">
         <i class="fas fa-image"></i> Forjador de Loadscreens
     </h2>
-    <p class="flavor-text">
-        Crea pantallas de carga para tus módulos. Utiliza cualquier imagen cuadrada de entre 512x512 y 1024x1024px. Arrastra tu imagen al recuadro o haz clic para seleccionarla.
-    </p>
+    <p class="flavor-text">Crea pantallas de carga para tus módulos. Usa cualquier imagen cuadrada entre 512x512 y 1024x1024px.</p>
 
     <div class="portrait-controls">
-        <div class="control-group" style="flex: 1;">
+        <div class="control-group">
             <label class="gold-text">1. Cargar Imagen:</label>
-            <div id="ls-drop-zone" class="portrait-preview-container" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border: 2px dashed #c5a059; cursor: pointer; background: rgba(0,0,0,0.2);">
-                <div id="ls-prompt" style="text-align: center; color: #c5a059; padding: 10px;">
-                    <i class="fas fa-cloud-upload-alt fa-2x"></i><br>
-                    <span>Arrastra o haz clic</span>
-                </div>
-                <canvas id="loadscreen-canvas" width="512" height="512" style="display: none; width: 100%; height: 100%; object-fit: contain;"></canvas>
+            <div id="ls-drop-zone" class="upload-container" style="height: 200px;">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Arrastra o haz clic</p>
+                <input type="file" id="loadscreen-input" accept="image/*" style="display: none;">
             </div>
-            <input type="file" id="loadscreen-input" accept="image/*" style="display: none;">
+        </div>
+
+        <div class="control-group">
+            <label class="gold-text">2. Vista Previa (512x512):</label>
+            <div class="preview-container" style="width: 200px; height: 200px; margin: 0 auto;">
+                <canvas id="loadscreen-canvas" width="512" height="512" style="width: 100%; height: 100%; display: none;"></canvas>
+                <div id="ls-placeholder" style="color: #444; display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <i class="fas fa-images fa-3x"></i>
+                </div>
+            </div>
         </div>
 
         <div class="control-group" style="display: flex; flex-direction: column; gap: 10px; justify-content: center;">
-            <button id="reset-loadscreen" class="nwn-btn" style="background: linear-gradient(to bottom, #4a1d1d, #2a0a0a); border-color: #a05959; color: #ff9999 !important;">
-                <i class="fas fa-trash"></i> Descartar
-            </button>
-			<button id="download-loadscreen" class="nwn-btn" disabled>
+            <button id="download-loadscreen" class="nwn-btn" disabled>
                 <i class="fas fa-download"></i> Descargar .TGA
+            </button>
+            <button id="reset-loadscreen" class="nwn-btn btn-danger">
+                <i class="fas fa-trash"></i> Descartar
             </button>
         </div>
     </div>
-</div>
 </div>
 	
 </div>
@@ -249,30 +253,28 @@ description: "Utilidades y herramientas creadas por Rhapsode para la comunidad d
         setTimeout(() => this.textContent = old, 1000);
     };
 	
-// --- LÓGICA DEL FORJADOR DE LOADSCREENS ---
+// --- LÓGICA FORJADOR DE LOADSCREENS ---
 const lsInput = document.getElementById('loadscreen-input');
 const lsDropZone = document.getElementById('ls-drop-zone');
 const lsCanvas = document.getElementById('loadscreen-canvas');
-const lsPrompt = document.getElementById('ls-prompt');
+const lsPlaceholder = document.getElementById('ls-placeholder');
 const lsDownloadBtn = document.getElementById('download-loadscreen');
 const lsResetBtn = document.getElementById('reset-loadscreen');
 const lsCtx = lsCanvas.getContext('2d');
 
-// Hacer clic en la zona activa el input
 lsDropZone.addEventListener('click', () => lsInput.click());
 
-// Manejar Drag & Drop
-lsDropZone.addEventListener('dragover', (e) => { e.preventDefault(); lsDropZone.style.background = "rgba(197, 160, 89, 0.1)"; });
-lsDropZone.addEventListener('dragleave', () => { lsDropZone.style.background = "rgba(0,0,0,0.2)"; });
+lsDropZone.addEventListener('dragover', (e) => { e.preventDefault(); lsDropZone.classList.add('dragover'); });
+lsDropZone.addEventListener('dragleave', () => lsDropZone.classList.remove('dragover'));
 lsDropZone.addEventListener('drop', (e) => {
     e.preventDefault();
-    lsDropZone.style.background = "rgba(0,0,0,0.2)";
-    handleFile(e.dataTransfer.files[0]);
+    lsDropZone.classList.remove('dragover');
+    handleLSFile(e.dataTransfer.files[0]);
 });
 
-lsInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+lsInput.addEventListener('change', (e) => handleLSFile(e.target.files[0]));
 
-function handleFile(file) {
+function handleLSFile(file) {
     if (!file || !file.type.startsWith('image/')) return;
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -284,7 +286,7 @@ function handleFile(file) {
             const y = (512 - img.height * scale) / 2;
             lsCtx.drawImage(img, x, y, img.width * scale, img.height * scale);
             
-            lsPrompt.style.display = "none";
+            lsPlaceholder.style.display = "none";
             lsCanvas.style.display = "block";
             lsDownloadBtn.disabled = false;
         };
@@ -293,16 +295,14 @@ function handleFile(file) {
     reader.readAsDataURL(file);
 }
 
-// Botón Descartar
 lsResetBtn.addEventListener('click', () => {
     lsCtx.clearRect(0, 0, 512, 512);
     lsCanvas.style.display = "none";
-    lsPrompt.style.display = "block";
+    lsPlaceholder.style.display = "flex";
     lsDownloadBtn.disabled = true;
     lsInput.value = "";
 });
 
-// Reutilizar la descarga TGA
 lsDownloadBtn.addEventListener('click', () => {
     const imageData = lsCtx.getImageData(0, 0, 512, 512);
     const tgaBuffer = createTGA(imageData.data, 512, 512);
