@@ -80,6 +80,33 @@ description: "Utilidades y herramientas creadas por Rhapsode para la comunidad d
         </div>
         <div id="name-result" class="name-display-box nwn-font">---</div>
     </div>
+	<div class="nwn-card" style="margin-top: 40px;">
+    <h2 class="nwn-font gold-text" style="margin-top: 0;">
+        <i class="fas fa-image"></i> Forjador de Loadscreens
+    </h2>
+    <p class="flavor-text">
+        Convierte cualquier imagen al formato oficial de pantalla de carga (512x512 TGA). Recomendado usar imágenes de máximo 1024x1024.
+    </p>
+
+    <div class="portrait-controls">
+        <div class="control-group">
+            <label class="gold-text">1. Seleccionar Imagen:</label>
+            <input type="file" id="loadscreen-input" accept="image/*" class="nwn-input">
+        </div>
+        <div class="control-group" style="text-align: center;">
+            <label class="gold-text">2. Vista Previa:</label>
+            <div class="portrait-preview-container" style="width: 256px; height: 256px; margin: 0 auto; border: 2px solid #c5a059;">
+                <canvas id="loadscreen-canvas" width="512" height="512" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+        <div class="control-group" style="display: flex; align-items: flex-end; justify-content: center;">
+            <button id="download-loadscreen" class="nwn-btn" disabled>
+                <i class="fas fa-download"></i> Descargar .TGA
+            </button>
+        </div>
+    </div>
+</div>
+	
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -215,4 +242,49 @@ description: "Utilidades y herramientas creadas por Rhapsode para la comunidad d
         this.textContent = "¡COPIADO!";
         setTimeout(() => this.textContent = old, 1000);
     };
+	
+	// --- LÓGICA DEL GENERADOR DE LOADSCREENS ---
+const loadscreenInput = document.getElementById('loadscreen-input');
+const loadscreenCanvas = document.getElementById('loadscreen-canvas');
+const downloadBtn = document.getElementById('download-loadscreen');
+const lsCtx = loadscreenCanvas.getContext('2d');
+
+loadscreenInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+            // Limpiar y dibujar ajustando al cuadrado de 512x512
+            lsCtx.clearRect(0, 0, 512, 512);
+            
+            // Calculamos proporciones para cubrir el canvas (Center Crop)
+            const scale = Math.max(512 / img.width, 512 / img.height);
+            const x = (512 - img.width * scale) / 2;
+            const y = (512 - img.height * scale) / 2;
+            
+            lsCtx.drawImage(img, x, y, img.width * scale, img.height * scale);
+            downloadBtn.disabled = false;
+        };
+        img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+});
+
+downloadBtn.addEventListener('click', function() {
+    // Reutilizamos la función de dibujo TGA que ya tienes en el Portrait Studio
+    // El canvas ya es 512x512, por lo que la exportación será correcta
+    const imageData = lsCtx.getImageData(0, 0, 512, 512);
+    const tgaBuffer = createTGA(imageData.data, 512, 512);
+    
+    const blob = new Blob([tgaBuffer], { type: 'image/x-targa' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'load_screen.tga';
+    link.click();
+    URL.revokeObjectURL(url);
+});
 </script>
